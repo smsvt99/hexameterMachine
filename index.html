@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2 id="verse">
+        </h2>
+        <button onclick="makeVerse()">New Verse</button>
+    </div>
+    <script>
+
+        const wordGroups = [
+            ["MARTIA", "TURPIA", "LURIDA", "PESSIMA", "ASPERA", "IGNEA", "ALTERA", "BARBARA", "IMPIA", "HORRIDA", "SONTIA", "BELLICA", "FERVIDA", "TRUCIDA", "INVIDA"],
+
+            ["CASTRA", "SIGNA", "REGNA", "JURA", "FACTA", "TEMPLA", "FERRA", "DAMNA", "VERBA", "FRŒNA", "VINCLA", "SACRA", "PILA", "SPONSA", "TELA", "VOTA"],
+
+            ["PALAM", "DOMI", "QUIDEM", "FORIS", "MALIS", "CITO", "TUIS", "FORIS", "SUIS", "SEQUA", "PUTO", "FERIS", "PATET", "FERE", "REIS", "BONIS", "MODIS"],
+
+            ["PRÆNARRANT", "PRODUCUNT", "DECLARANT", "CONQUIRANT", "MONSTRABUNT", "PROFUNDUNT", "CORRADUNT", "PROMITTUNT", "CAUSABUNT", "PROMULGANT", "DEPROMANT", "PORTENDUNT", "CONOFIRMANT", "PRÆMONSTRANT", "CONJUNGUNT", "PROGIGNUNT", "DECIDUNT", "PRORITANT"],
+
+            ["AGMINA", "CRIMINÆ", "LUMINA", "PRŒLIA", "CARMINA", "VINCULA", "SPICULA", "NUBILA", "VERBERA", "FŒDERA", "JURGIA", "FULGURA", "SOMNIA", "ORGANA", "VULNERA", "NOMINA", "MUNERA", "TRISTIA", "TEMPORA"],
+
+            ["MALA", "NIGRA", "RARA", "MULTA", "LETHA", "QUÆDAM", "NEQUAM", "DURA", "DENSA", "CREBRA", "FUSCA", "PRAVA", "SÆVA", "SENTA", "CARA", "FRIMA", "DIRA", "MŒSTA", "TORVA", "MIRA"]
+        ]
+        
+        function makeVerse(){
+            let verse = '';
+            for (let i = 0; i < wordGroups.length; i++){
+                let word;
+                word = wordGroups[i][Math.floor(Math.random()*wordGroups[i].length)];
+                verse += word + ' ';        
+        }
+        document.getElementById('verse').textContent = verse
+        }
+
+        makeVerse();
+
+
+    </script>
+</body>
+
+</html>
