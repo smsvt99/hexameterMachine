@@ -2,48 +2,104 @@
 
 <head>
     <style>
-        div {
+        /* div{
+            margin-left: 30%;
+        } */
+        li {
+            list-style-type: none;
+        }
+        ol{
+            margin-left: 30%;
+        }
+
+        .numbered {
+            list-style-type: decimal;
+        }
+
+        #nextBookDiv {
+            text-align: right;
+            margin-right: 8%;
+        }
+
+        #titles {
             text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <h2 id="verse">
-        </h2>
-        <button onclick="makeVerse()">New Verse</button>
+    <!-- <button onclick="makeVerse()">New Verse</button> -->
+    <!-- <button onclick="aeneidize()">Make it as long as the Aeneid</button> -->
+    <div id='titles'>
+        <h1>RANDOM HEXAMETER AENEID</h1>
+        <h2>PSEUDO P. VERGILI MARONIS AENEIDOS VERBIS FORTE INVENTIS LIBER<span id="bookNumber"></span></h2>
     </div>
-    <script>
 
-        const wordGroups = [
-            ["MARTIA", "TURPIA", "LURIDA", "PESSIMA", "ASPERA", "IGNEA", "ALTERA", "BARBARA", "IMPIA", "HORRIDA", "SONTIA", "BELLICA", "FERVIDA", "TRUCIDA", "INVIDA"],
+            <ol id="verse"></ol>
+            <div id="nextBookDiv">
+                <a href=# id="nextBook" onclick="aeneidize()">Book Two >>></a>
+            </div>
+        </div>
+        <script>
 
-            ["CASTRA", "SIGNA", "REGNA", "JURA", "FACTA", "TEMPLA", "FERRA", "DAMNA", "VERBA", "FRŒNA", "VINCLA", "SACRA", "PILA", "SPONSA", "TELA", "VOTA"],
+            const wordGroups = [
+                ["MARTIA", "TURPIA", "LURIDA", "PESSIMA", "ASPERA", "IGNEA", "ALTERA", "BARBARA", "IMPIA", "HORRIDA", "SONTIA", "BELLICA", "FERVIDA", "TRUCIDA", "INVIDA"],
 
-            ["PALAM", "DOMI", "QUIDEM", "FORIS", "MALIS", "CITO", "TUIS", "FORIS", "SUIS", "SEQUA", "PUTO", "FERIS", "PATET", "FERE", "REIS", "BONIS", "MODIS"],
+                ["CASTRA", "SIGNA", "REGNA", "JURA", "FACTA", "TEMPLA", "FERRA", "DAMNA", "VERBA", "FRŒNA", "VINCLA", "SACRA", "PILA", "SPONSA", "TELA", "VOTA"],
 
-            ["PRÆNARRANT", "PRODUCUNT", "DECLARANT", "CONQUIRANT", "MONSTRABUNT", "PROFUNDUNT", "CORRADUNT", "PROMITTUNT", "CAUSABUNT", "PROMULGANT", "DEPROMANT", "PORTENDUNT", "CONOFIRMANT", "PRÆMONSTRANT", "CONJUNGUNT", "PROGIGNUNT", "DECIDUNT", "PRORITANT"],
+                ["PALAM", "DOMI", "QUIDEM", "FORIS", "MALIS", "CITO", "TUIS", "FORIS", "SUIS", "SEQUA", "PUTO", "FERIS", "PATET", "FERE", "REIS", "BONIS", "MODIS"],
 
-            ["AGMINA", "CRIMINÆ", "LUMINA", "PRŒLIA", "CARMINA", "VINCULA", "SPICULA", "NUBILA", "VERBERA", "FŒDERA", "JURGIA", "FULGURA", "SOMNIA", "ORGANA", "VULNERA", "NOMINA", "MUNERA", "TRISTIA", "TEMPORA"],
+                ["PRÆNARRANT", "PRODUCUNT", "DECLARANT", "CONQUIRANT", "MONSTRABUNT", "PROFUNDUNT", "CORRADUNT", "PROMITTUNT", "CAUSABUNT", "PROMULGANT", "DEPROMANT", "PORTENDUNT", "CONFIRMANT", "PRÆMONSTRANT", "CONJUNGUNT", "PROGIGNUNT", "DECIDUNT", "PRORITANT"],
 
-            ["MALA", "NIGRA", "RARA", "MULTA", "LETHA", "QUÆDAM", "NEQUAM", "DURA", "DENSA", "CREBRA", "FUSCA", "PRAVA", "SÆVA", "SENTA", "CARA", "FRIMA", "DIRA", "MŒSTA", "TORVA", "MIRA"]
-        ]
-        
-        function makeVerse(){
-            let verse = '';
-            for (let i = 0; i < wordGroups.length; i++){
-                let word;
-                word = wordGroups[i][Math.floor(Math.random()*wordGroups[i].length)];
-                verse += word + ' ';        
-        }
-        document.getElementById('verse').textContent = verse
-        }
+                ["AGMINA", "CRIMINÆ", "LUMINA", "PRŒLIA", "CARMINA", "VINCULA", "SPICULA", "NUBILA", "VERBERA", "FŒDERA", "JURGIA", "FULGURA", "SOMNIA", "ORGANA", "VULNERA", "NOMINA", "MUNERA", "TRISTIA", "TEMPORA"],
 
-        makeVerse();
+                ["MALA", "NIGRA", "RARA", "MULTA", "LETHA", "QUÆDAM", "NEQUAM", "DURA", "DENSA", "CREBRA", "FUSCA", "PRAVA", "SÆVA", "SENTA", "CARA", "FRIMA", "DIRA", "MŒSTA", "TORVA", "MIRA"]
+            ]
 
+            function makeVerse() {
 
-    </script>
+                let verse = '';
+                for (let i = 0; i < wordGroups.length; i++) {
+                    let word;
+                    word = wordGroups[i][Math.floor(Math.random() * wordGroups[i].length)];
+                    verse += word + ' ';
+                }
+                listItem = document.createElement('li');
+                listItem.textContent = verse;
+                document.getElementById('verse').appendChild(listItem);
+            }
+
+            let i = 0;
+            function aeneidize() {
+                let books = [776, 804, 718, 705, 871, 901, 817, 731, 818, 908, 915, 952]
+                let titles = [' PRIMUS', ' SECUNDUS', ' TERTIUS', ' QUARTUS', ' QUINTUS', ' SEXTUS', ' SEPTIMUS', ' OCTAVUS', ' NONUS', ' DECIMUS', ' UNDECIMUS', ' DUODECIMUS']
+                let button = ['LIBER SECUNDUS>>>', 'LIBER TERTIUS>>>', 'LIBER QUARTUS>>>', 'LIBER QUINTUS>>>', 'LIBER SEXTUS>>>', 'LIBER SEPTIMUS>>>', 'LIBER OCTAVUS>>>', 'LIBER NONUS>>>', 'LIBER DECIMUS>>>', 'LIBER UNDECIMUS>>>', 'LIBER DUODECIMUS>>>', '']
+                if (i > 12) {
+                } else {
+                    document.getElementById('verse').innerHTML = '';
+                    for (let j = 0; j < books[i]; j++) {
+                        makeVerse();
+                    }
+                    document.getElementById("bookNumber").textContent = titles[i];
+                    document.getElementById("nextBook").textContent = button[i];
+                    i++;
+                }
+                number();
+            }
+
+            function number(){
+                let list = document.getElementById('verse')
+                let childrenArray = list.children
+                for (let i = 1; i <= childrenArray.length; i++){
+                    if (i % 5 === 0){
+                        childrenArray[i-1].setAttribute('class', 'numbered')
+                    }
+                }
+            }
+
+            aeneidize();
+
+        </script>
 </body>
 
 </html>
